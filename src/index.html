@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jet ES6</title>
+    <link rel="icon" href="css/favicon.ico" type="image/x-icon" />
+
+    <!-- altaCss -->
+    <!-- startCss -->
+        <link rel="stylesheet" href="bower_modules/oraclejet/dist/css/alta-android/oj-alta-min.css" type="text/css" />
+        <link rel="stylesheet" href="bower_modules/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <!-- endCss -->
+    <!-- startJs -->
+        <script src="require.config.js"></script>
+        <script data-main="startup" src="bower_modules/requirejs/require.js"></script>
+    <!-- endJs -->
+</head>
+
+<body id="globalBody">
+    <h1>Knockout, Redux and JET</h1>
+    <form class="form">
+        <div class="form-group">
+            <label for="width">Width</label>
+            <input type="text" class="form-control" name="width"
+            data-bind="event:{keyup:updateWidth}"  placeholder="width">
+        </div>
+        <div class="form-group">
+            <label for="height">Height</label>
+            <input type="text" class="form-control" name="height"
+                data-bind="event:{keyup:updateHeight}"
+                placeholder="heigth">
+        </div>
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" class="form-control" name="color"
+                data-bind="event:{keyup:updateColor}"
+                placeholder="color">
+        </div>
+    </form>
+    <div data-bind="if:hasErrors">
+        <div class="alert alert-danger" data-bind="foreach:errors">
+            <p data-bind="text:$data"></p>
+        </div>
+    </div>
+    <code data-bind="text: statePrint"></code>
+    <!-- cordovaJs -->
+</body>
+
+</html>
