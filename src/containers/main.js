@@ -11,9 +11,23 @@ const mapActionsToDispatch = dispatch => bindActionCreators(actions, dispatch)
 const mapStateToProps = createSelector(
     getStyleProps,
     getStyleErrors,
-    (state)=>JSON.stringify(state),
-    (style, errors, statePrint) => ({ style, errors, statePrint, hasErrors: errors ? true : false })
+    (state)=>state,
+    (style, errors, statePrint) => ({
+        style,
+        errors,
+        statePrint: JSON.stringify(state),
+        hasErrors: errors ? true : false
+    })
 )
+/* This should work too and selector make
+    the magic behind to only compute 1 time `getStyleErrors`
+
+const mapStateToProps = style => ({
+    style: getStyleProps(state),
+    errors: getStyleErrors(state),
+    statePrint: JSON.stringify(state),
+    hasErrors: getStyleErrors(state) ? true : false
+})*/
 
 @connect(mapStateToProps, mapActionsToDispatch)
 class MainViewModel {

@@ -1,5 +1,5 @@
 import {CHANGE_COLOR,CHANGE_WIDTH,CHANGE_HEIGHT} from '../constants/style'
-
+import {createSelector} from 'reselect'
 const initialState = {
     color: '',
     width: 0,
@@ -23,19 +23,24 @@ export default function styleReducer(state = initialState, action){
     }
 }
 
-export function getStyleErrors(state){
-    let errors = []
+export const getStyleErrors = createSelector(
+   state => state.width,
+   state => state.height,
+   (width, height) => {
+       let errors = []
 
-    if (isInvalidNumeric(state.width)){
-        errors.push('Width is not a valid number')
-    }
+       if (isInvalidNumeric(width)){
+           errors.push('Width is not a valid number')
+       }
 
-    if (isInvalidNumeric(state.height)){
-        errors.push('Height is not a valid number')
-    }
+       if (isInvalidNumeric(height)){
+           errors.push('Height is not a valid number')
+       }
 
-    return errors
-}
+       return errors
+   }
+)
+
 
 export function getStyleProps({color, width, height}){
     return { color, width, height }
