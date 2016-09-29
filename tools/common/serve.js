@@ -4,7 +4,7 @@ import path from 'path'
 import * as babel from 'babel-core'
 import sass from 'node-sass'
 
-import {ignores, presets, plugins} from '../config/babel'
+import {ignores, onlys, presets, plugins} from '../config/babel'
 
 // $ serve [src]
 
@@ -78,11 +78,29 @@ async function serve(args) {
             if (es6 && contentType === 'text/javascript'){
                 let ignore = false
                 for (var i = 0; i < ignores.length; i++) {
-                    if (filePath.indexOf(ignores[i])>0){
+                    console.log(ignores[i])
+                    console.log(filePath)
+                    console.log('---i')
+                    if (filePath.indexOf(ignores[i]) > -1){
                         ignore = true
                         break
                     }
                 }
+
+                console.log(ignore)
+
+                for (var i = 0; i < onlys.length; i++) {
+                    console.log(onlys[i])
+                    console.log(filePath)
+                    console.log('---o')
+                    if (filePath.indexOf(onlys[i])>-1){
+                        ignore = false
+                        break
+                    }
+                }
+
+                console.log(ignore)
+
 
                 if (!ignore){
                     let {code} = babel.transform(content, { presets, plugins })

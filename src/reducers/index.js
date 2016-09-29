@@ -1,6 +1,18 @@
-import {ActionTypes} from "../infrastructure/index";
-import {default as objectAssign} from "object-assign";
+import {combineReducers} from 'redux'
+import reduxLogger from 'redux-logger'
+import style, * as styleSelectors from './style'
 
+const rootReducer = combineReducers({
+    style
+})
+
+export default rootReducer
+
+export const getStyleErrors = (state)=>styleSelectors.getStyleErrors(state.style)
+export const getStyleProps = (state)=>styleSelectors.getStyleProps(state.style)
+
+
+/*
 const widthError = "Width should be numeric";
 const heightError = "Height should be numeric";
 
@@ -12,7 +24,7 @@ function changeWidth(initialState, width) {
     }
 
     const errors = removeError(initialState.errors, widthError);
-    return objectAssign({}, initialState, {width,errors});
+    return Object.assign({}, initialState, {width,errors});
 }
 
 function changeHeight(initialState, height) {
@@ -21,7 +33,7 @@ function changeHeight(initialState, height) {
     }
 
     const errors = removeError(initialState.errors, heightError);
-    return objectAssign({}, initialState, {height, errors});
+    return Object.assign({}, initialState, {height, errors});
 }
 
 function isValidNumeric(input){
@@ -30,7 +42,7 @@ function isValidNumeric(input){
 
 function updatedErrorState(initialState, error, resetValue){
     const errors = (initialState.errors ? addError(initialState.errors, error) : [error]);
-    return objectAssign({}, initialState, {errors, [resetValue]:0});
+    return Object.assign({}, initialState, {errors, [resetValue]:0});
 }
 
 function addError(errors, newError){
@@ -49,7 +61,7 @@ function removeError(errors, errorToRemove){
 
 
 function changeColor(initialState, color){
-    return objectAssign({}, initialState, {"color":color});
+    return Object.assign({}, initialState, {"color":color});
 }
 
 reducerMap.set(ActionTypes.CHANGE_WIDTH, changeWidth);
@@ -59,4 +71,4 @@ reducerMap.set(ActionTypes.CHANGE_COLOR, changeColor);
 export default function rootReducer(initialState = {}, action){
     console.log(action)
     return reducerMap.has(action.type) ? reducerMap.get(action.type)(initialState, action.payload) : initialState;
-}
+}*/

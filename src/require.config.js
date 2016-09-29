@@ -21,8 +21,9 @@ var require = {
         "jet-komponents":       "bower_modules/jet-komponents/dist/jet-komponents",
         "moment":               "bower_modules/moment/min/moment.min",
         "axios":                "bower_modules/axios/dist/axios.min",
-        "object-assign":        "utils/object-assign",
-        "redux":                "bower_modules/redux/index"
+        "redux":                "bower_modules/redux/index",
+        "redux-logger":         "bower_modules/redux-logger/index",
+        "reselect":             "bower_modules/reselect/index"
     },
     shim: {
         'jquery': {

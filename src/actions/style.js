@@ -1,4 +1,4 @@
-import {ActionTypes} from '../infrastructure/index'
+import * as ActionTypes from '../constants/style'
 
 function changeWidth(width){
     return {

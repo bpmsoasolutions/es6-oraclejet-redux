@@ -1,53 +1,47 @@
 import ko from 'knockout';
-import store from "../store/index";
-import * as actions from "../actions/index";
+import { bindActionCreators } from 'redux'
+import {connect} from "../store/index";
+import * as actions from "../actions/style";
+import {createSelector} from 'reselect'
 
+import {getStyleProps, getStyleErrors} from '../reducers/index'
+
+const mapActionsToDispatch = dispatch => bindActionCreators(actions, dispatch)
+
+const mapStateToProps = createSelector(
+    getStyleProps,
+    getStyleErrors,
+    (state)=>JSON.stringify(state),
+    (style, errors, statePrint) => ({ style, errors, statePrint, hasErrors: errors ? true : false })
+)
+
+@connect(mapStateToProps, mapActionsToDispatch)
 class MainViewModel {
-    constructor(){
-        this.applicationState = ko.observable(this.getState());
-
-        this.unsubscribe = store.subscribe(() => {
-            console.info("store changed");
-            this.applicationState(this.getState());
-        });
-
-        this.color = ko.pureComputed(() => this.applicationState().color);
-        this.height = ko.pureComputed(() => `${this.applicationState().height}px`);
-        this.width = ko.pureComputed(() => `${this.applicationState().width}px`);
-        this.statePrint = ko.pureComputed(() => ko.toJSON(this.applicationState()));
-        this.errors = ko.pureComputed(() => this.applicationState().errors);
-        this.hasErrors = ko.pureComputed(() => {return (this.errors() && this.errors().length > 0)});
-    }
 
     updateWidth(data, e){
-        this.updateDimension(e, actions.changeWidth);
+        this.changeWidth(parseFloat(e.target.value))
     }
 
     updateHeight(data, e){
-        this.updateDimension(e, actions.changeHeight);
+        this.changeHeight(parseFloat(e.target.value))
     }
 
-    updateDimension(e,actionCreator) {
-        var value = this.getValueAsInt(e.target);
-        if(value){
-            this.dispatch(actionCreator(value));
-        }
+    updateColor(data, e){
+        this.changeColor(e.target.value)
     }
 
     getValueAsInt(input){
         return input.value;
     }
 
-    updateColor(data, e){
-        this.dispatch(actions.changeColor((e.target).value));
-    }
+    onInit(){
+        this.height = ko.observable(this.style().height)
+        this.width = ko.observable(this.style().width)
 
-    getState(){
-        return store.getState() || {color:"", width:"", height:"", errors:[]};
-    }
-
-    dispatch(action){
-        return store.dispatch(action);
+        this.style.subscribe(newStyle=>{
+            !isNaN(newStyle.height) ? this.height(newStyle.height) : null
+            !isNaN(newStyle.width) ? this.width(newStyle.width) : null
+        })
     }
 }
 

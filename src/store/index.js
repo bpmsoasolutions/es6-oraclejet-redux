@@ -1,6 +1,18 @@
-import { createStore } from "redux";
-import colorReducers from '../reducers/index';
+import { createStore, applyMiddleware, compose } from "redux";
+import rootReducer from '../reducers/index';
+import connectFactory from './connectFactory'
+import createLogger from 'redux-logger';
 
-const store = createStore(colorReducers)
+const store = createStore(
+    rootReducer,
+    compose(
+        applyMiddleware(createLogger()),
+        window.devToolsExtension ? window.devToolsExtension() : f => f
+    )
+)
 
-export default store;
+const connect = connectFactory(store)
+export {
+    store,
+    connect
+}

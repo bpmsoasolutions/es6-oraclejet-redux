@@ -1,0 +1,3 @@
+export const CHANGE_COLOR = 'CHANGE_COLOR'
+export const CHANGE_WIDTH = 'CHANGE_WIDTH'
+export const CHANGE_HEIGHT = 'CHANGE_HEIGHT'
