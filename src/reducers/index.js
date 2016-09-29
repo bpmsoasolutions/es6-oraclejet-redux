@@ -1,4 +1,4 @@
-import {IApplicationState, IAction, ActionTypes} from "../infrastructure/index";
+import {ActionTypes} from "../infrastructure/index";
 import {default as objectAssign} from "object-assign";
 
 const widthError = "Width should be numeric";
