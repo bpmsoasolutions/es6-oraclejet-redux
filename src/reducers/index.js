@@ -2,14 +2,19 @@ import {combineReducers} from 'redux'
 import reduxLogger from 'redux-logger'
 import style, * as styleSelectors from './style'
 
+import { routerReducer } from '../utils/router/index'
+
 const rootReducer = combineReducers({
-    style
+    style,
+    routing: routerReducer
 })
 
 export default rootReducer
 
+// This are the place that knows where the specific reducers are conected in your global state
 export const getStyleErrors = (state)=>styleSelectors.getStyleErrors(state.style)
 export const getStyleProps = (state)=>styleSelectors.getStyleProps(state.style)
+
 
 
 /*

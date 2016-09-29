@@ -3,8 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "crossroads": "~0.12.0",
-    "hasher": "~1.2.0",
     "requirejs": "~2.1.11",
     "requirejs-text": "~2.0.10",
     "knockout": "~3.4.0",
@@ -16,7 +14,8 @@
     "font-awesome": "^4.6.3",
     "redux": "https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js",
     "redux-logger": "https://unpkg.com/redux-logger@2.6.1/dist/index.js",
-    "reselect": "https://unpkg.com/reselect@2.5.4/src/index.js"
+    "reselect": "https://unpkg.com/reselect@2.5.4/src/index.js",
+    "history": "https://unpkg.com/history/umd/history.js"
   },
   "resolutions": {
     "knockout": "~3.4.0",

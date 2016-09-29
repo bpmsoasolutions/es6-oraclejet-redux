@@ -1,22 +1,22 @@
-import * as ActionTypes from '../constants/style'
+import {CHANGE_WIDTH, CHANGE_HEIGHT, CHANGE_COLOR} from '../constants/style'
 
 function changeWidth(width){
     return {
-        type:ActionTypes.CHANGE_WIDTH,
+        type: CHANGE_WIDTH,
         payload:width
     }
 }
 
 function changeHeight(height){
     return {
-        type:ActionTypes.CHANGE_HEIGHT,
+        type: CHANGE_HEIGHT,
         payload:height
     };
 }
 
 function changeColor(color) {
     return {
-        type:ActionTypes.CHANGE_COLOR,
+        type: CHANGE_COLOR,
         payload:color
     }
 }
