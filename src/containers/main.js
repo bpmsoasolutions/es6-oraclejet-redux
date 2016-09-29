@@ -19,8 +19,12 @@ const mapStateToProps = createSelector(
         hasErrors: errors ? true : false
     })
 )
+
 /* This should work too and selector make
-    the magic behind to only compute 1 time `getStyleErrors`
+    the magic behind to only compute 1 time
+    `getStyleErrors`, but in this way there are
+    more computed charge if the function is called
+    more times...
 
 const mapStateToProps = style => ({
     style: getStyleProps(state),
