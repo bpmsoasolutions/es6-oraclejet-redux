@@ -12,7 +12,7 @@ const mapStateToProps = createSelector(
     getStyleProps,
     getStyleErrors,
     (state)=>state,
-    (style, errors, statePrint) => ({
+    (style, errors, state) => ({
         style,
         errors,
         statePrint: JSON.stringify(state),
