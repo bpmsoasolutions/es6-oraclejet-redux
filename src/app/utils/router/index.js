@@ -1,9 +1,9 @@
+import { CALL_HISTORY_METHOD, LOCATION_CHANGE } from './constants'
 
 import syncHistoryWithStore from './sync'
-import { LOCATION_CHANGE, routerReducer } from './reducer'
+import { routerReducer } from './reducer'
 
 import {
-  CALL_HISTORY_METHOD,
   push, replace, go, goBack, goForward,
   routerActions
 } from './actions'

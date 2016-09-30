@@ -6,10 +6,13 @@ import { routerReducer } from '../utils/router/index'
 
 const rootReducer = combineReducers({
     style,
-    routing: routerReducer
+    router: routerReducer
 })
 
 export default rootReducer
+
+//Router Seletor
+export const getRouter = (state)=>state.router
 
 // This are the place that knows where the specific reducers are conected in your global state
 export const getStyleErrors = (state)=>styleSelectors.getStyleErrors(state.style)

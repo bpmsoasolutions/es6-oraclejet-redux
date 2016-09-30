@@ -3,7 +3,7 @@
  * If you're writing a middleware to watch for navigation events, be sure to
  * look for actions of this type.
  */
-export const CALL_HISTORY_METHOD = '@@router/CALL_HISTORY_METHOD'
+import {CALL_HISTORY_METHOD} from './constants'
 
 function updateLocation(method) {
   return (...args) => ({

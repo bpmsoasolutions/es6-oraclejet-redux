@@ -1,4 +1,4 @@
-import { CALL_HISTORY_METHOD } from './actions'
+import { CALL_HISTORY_METHOD } from './constants'
 
 /**
  * This middleware captures CALL_HISTORY_METHOD actions to redirect to the

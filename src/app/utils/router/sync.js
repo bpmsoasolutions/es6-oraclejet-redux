@@ -1,6 +1,6 @@
 import {
     LOCATION_CHANGE
-} from './reducer'
+} from './constants'
 
 const defaultSelectLocationState = state => state.routing
 
@@ -99,49 +99,45 @@ export default function syncHistoryWithStore(history, store, {
     }
     unsubscribeFromHistory = history.listen(handleLocationChange)
 
-    const listen = function(listener) {
-        // Copy of last location.
-        let lastPublishedLocation = getLocationInStore(true)
-
-        // Keep track of whether we unsubscribed, as Redux store
-        // only applies changes in subscriptions on next dispatch
-        let unsubscribed = false
-        const unsubscribeFromStore = store.subscribe(() => {
-            const currentLocation = getLocationInStore(true)
-            if (currentLocation === lastPublishedLocation) {
-                return
-            }
-            lastPublishedLocation = currentLocation
-            if (!unsubscribed) {
-                listener(lastPublishedLocation)
-            }
-        })
-
-        // History listeners expect a synchronous call. Make the first call to the
-        // listener after subscribing to the store, in case the listener causes a
-        // location change (e.g. when it redirects)
-        listener(lastPublishedLocation)
-
-        // Let user unsubscribe later
-        return () => {
-            unsubscribed = true
-            unsubscribeFromStore()
-        }
-    }
-
-    const unsubscribe = function() {
-        if (adjustUrlOnReplay) {
-            unsubscribeFromStore()
-        }
-        unsubscribeFromHistory()
-    }
-
     // The enhanced history uses store as source of truth
-    return Object.assign({},
-        history,
+    return {
+        ...history,
         // The listeners are subscribed to the store instead of history
-        listen,
+        listen(listener) {
+            // Copy of last location.
+            let lastPublishedLocation = getLocationInStore(true)
+
+            // Keep track of whether we unsubscribed, as Redux store
+            // only applies changes in subscriptions on next dispatch
+            let unsubscribed = false
+            const unsubscribeFromStore = store.subscribe(() => {
+                const currentLocation = getLocationInStore(true)
+                if (currentLocation === lastPublishedLocation) {
+                    return
+                }
+                lastPublishedLocation = currentLocation
+                if (!unsubscribed) {
+                    listener(lastPublishedLocation)
+                }
+            })
+
+            // History listeners expect a synchronous call. Make the first call to the
+            // listener after subscribing to the store, in case the listener causes a
+            // location change (e.g. when it redirects)
+            listener(lastPublishedLocation)
+
+            // Let user unsubscribe later
+            return () => {
+                unsubscribed = true
+                unsubscribeFromStore()
+            }
+        },
         // It also provides a way to destroy internal listeners
-        unsubscribe
-    )
+        unsubscribe() {
+            if (adjustUrlOnReplay) {
+                unsubscribeFromStore()
+            }
+            unsubscribeFromHistory()
+        }
+    }
 }

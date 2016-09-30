@@ -4,8 +4,6 @@
 var require = {
     baseUrl: ".",
     paths: {
-        "crossroads":           "bower_modules/crossroads/dist/crossroads.min",
-        "hasher":               "bower_modules/hasher/dist/js/hasher.min",
         "jquery":               "bower_modules/jquery/dist/jquery",
         "jqueryui-amd":         "bower_modules/jquery-ui/ui",
         "knockout":             "bower_modules/knockout/dist/knockout.debug",

@@ -1,0 +1,12 @@
+{
+  "globalDependencies": {
+    "axios": "registry:dt/axios#0.9.1+20160629101425",
+    "history": "registry:dt/history#1.8.0+20160316155526",
+    "jquery": "registry:dt/jquery#1.10.0+20160908203239",
+    "knockout": "registry:dt/knockout#0.0.0+20160914182733",
+    "moment": "registry:dt/moment#2.11.1+20160829143156",
+    "redux": "registry:dt/redux#3.5.2+20160703092728",
+    "redux-router": "registry:dt/redux-router#1.0.0+20160316155526",
+    "reselect": "registry:dt/reselect#2.0.2+20160319031821"
+  }
+}

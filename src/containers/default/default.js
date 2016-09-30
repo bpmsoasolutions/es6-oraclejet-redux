@@ -1,21 +1,22 @@
 import ko from 'knockout';
 import { bindActionCreators } from 'redux'
-import {connect} from "../store/index";
-import * as actions from "../actions/style";
 import {createSelector} from 'reselect'
 
-import {getStyleProps, getStyleErrors} from '../reducers/index'
+import {connect} from "../../app/store/index";
+import * as actions from "../../app/actions/style";
+import {getStyleProps, getStyleErrors} from '../../app/reducers/index'
+
+import template from 'text!./default.html';
+
 
 const mapActionsToDispatch = dispatch => bindActionCreators(actions, dispatch)
 
 const mapStateToProps = createSelector(
     getStyleProps,
     getStyleErrors,
-    (state)=>state,
-    (style, errors, state) => ({
+    (style, errors) => ({
         style,
         errors,
-        statePrint: JSON.stringify(state),
         hasErrors: errors ? true : false
     })
 )
@@ -34,7 +35,7 @@ const mapStateToProps = style => ({
 })*/
 
 @connect(mapStateToProps, mapActionsToDispatch)
-class MainViewModel {
+class viewModel {
 
     updateWidth(data, e){
         this.changeWidth(parseFloat(e.target.value))
@@ -49,7 +50,7 @@ class MainViewModel {
     }
 
     getValueAsInt(input){
-        return input.value;
+        return input.value
     }
 
     onInit(){
@@ -61,6 +62,10 @@ class MainViewModel {
             !isNaN(newStyle.width) ? this.width(newStyle.width) : null
         })
     }
+
+    dispose(){
+        console.log('Leaving Home...')
+    }
 }
 
-export const mainViewModel = new MainViewModel();
+export default { viewModel, template }

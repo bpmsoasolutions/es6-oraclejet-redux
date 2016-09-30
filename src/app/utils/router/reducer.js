@@ -2,10 +2,11 @@
  * This action type will be dispatched when your history
  * receives a location change.
  */
-export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE'
+import {LOCATION_CHANGE} from './constants'
 
+const {pathname, search, hash} = location
 const initialState = {
-  locationBeforeTransitions: null
+  locationBeforeTransitions: {pathname, search, hash}
 }
 
 /**

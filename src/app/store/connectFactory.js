@@ -5,7 +5,7 @@ export default function connectFactory(store) {
         return function connectDecorator(ViewModel) {
 
             class DecoratedViewModel extends ViewModel {
-                constructor() {
+                constructor(params) {
                     super()
 
                     let props = mapStateToProps(store.getState())
@@ -21,7 +21,7 @@ export default function connectFactory(store) {
                         })
                     })
 
-                    this.onInit()
+                    this.onInit(params)
                 }
             }
 

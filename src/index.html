@@ -13,37 +13,16 @@
         <link rel="stylesheet" href="bower_modules/font-awesome/css/font-awesome.min.css" type="text/css" />
     <!-- endCss -->
     <!-- startJs -->
-        <script src="require.config.js"></script>
-        <script data-main="startup" src="bower_modules/requirejs/require.js"></script>
+        <script src="app/require.config.js"></script>
+        <script data-main="app/startup" src="bower_modules/requirejs/require.js"></script>
     <!-- endJs -->
 </head>
 
 <body id="globalBody">
     <h1>Knockout, Redux and JET</h1>
-    <form class="form">
-        <div class="form-group">
-            <label for="width">Width</label>
-            <input type="text" class="form-control" name="width"
-            data-bind="event:{keyup:updateWidth}, value:width"  placeholder="width">
-        </div>
-        <div class="form-group">
-            <label for="height">Height</label>
-            <input type="text" class="form-control" name="height"
-                data-bind="event:{keyup:updateHeight}, value:height"
-                placeholder="heigth">
-        </div>
-        <div class="form-group">
-            <label for="color">Color</label>
-            <input type="text" class="form-control" name="color"
-                data-bind="event:{keyup:updateColor}, value:style().color"
-                placeholder="color">
-        </div>
-    </form>
-    <div data-bind="if:hasErrors">
-        <div class="alert alert-danger" data-bind="foreach:errors">
-            <p data-bind="text:$data"></p>
-        </div>
-    </div>
+    <router params='hey: "hey"'></router>
+
+    <h2>State</h2>
     <code data-bind="text: statePrint"></code>
     <!-- cordovaJs -->
 </body>
