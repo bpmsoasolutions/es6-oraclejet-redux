@@ -17,6 +17,7 @@ var require = {
         "ojL10n":               "bower_modules/oraclejet/dist/js/libs/oj/ojL10n",
         "ojtranslations":       "bower_modules/oraclejet/dist/js/libs/oj/resources",
         "jet-komponents":       "bower_modules/jet-komponents/dist/jet-komponents",
+        "css":                  "bower_modules/require-css/css",
         "moment":               "bower_modules/moment/min/moment.min",
         "axios":                "bower_modules/axios/dist/axios.min",
         "redux":                "bower_modules/redux/index",

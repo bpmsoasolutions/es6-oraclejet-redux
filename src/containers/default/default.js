@@ -7,7 +7,7 @@ import * as actions from "../../app/actions/style";
 import {getStyleProps, getStyleErrors} from '../../app/reducers/index'
 
 import template from 'text!./default.html';
-
+import 'css!./default.css'
 
 const mapActionsToDispatch = dispatch => bindActionCreators(actions, dispatch)
 

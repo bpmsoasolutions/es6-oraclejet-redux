@@ -22,9 +22,12 @@ class viewModel {
         console.log(this.router().locationBeforeTransitions.pathname)
 
         this.componentName = ko.pureComputed(()=>{
-            if (this.router().locationBeforeTransitions.pathname === '/'){
+            let hashPath = this.router().locationBeforeTransitions.pathname
+            let path = hashPath.slice(1, hashPath.length)
+            if (path === ''){
                 return 'default'
             }
+            return path
         })
         this.params = ko.pureComputed(()=>{
             return {}
