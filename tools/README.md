@@ -1,3 +1,4 @@
+# jet-builder
 ## Build Automation Tools
 
 This project have a bunch of functions that need babel-node to be run, because we use async/await functions that are available on ES6.
@@ -43,3 +44,4 @@ Perform all actions of cordova over the `app` folder
 #### Misc
 
 * `run.js` - Helps to launch other scripts with `babel-node` (e.g. `babel-node tools/run build`)
+
