@@ -1,6 +1,7 @@
 import ko from 'knockout'
 import { bindActionCreators } from 'redux'
-import {createSelector} from 'reselect'
+import {createSelector} from '../../app/utils/reselect'
+
 
 import {connect} from "../../app/store/index"
 import {getRouter} from '../../app/reducers/index'
@@ -35,4 +36,4 @@ class viewModel {
     }
 }
 
-export default { viewModel, template };
+export default { viewModel, template }

@@ -14,7 +14,6 @@
     "font-awesome": "^4.6.3",
     "redux": "https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js",
     "redux-logger": "https://unpkg.com/redux-logger@2.6.1/dist/index.js",
-    "reselect": "https://unpkg.com/reselect@2.5.4/src/index.js",
     "history": "https://unpkg.com/history/umd/history.js",
     "require-css": "^0.1.8"
   },

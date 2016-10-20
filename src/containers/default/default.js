@@ -1,13 +1,12 @@
-import ko from 'knockout';
+import ko from 'knockout'
 import { bindActionCreators } from 'redux'
-import {createSelector} from 'reselect'
+import {createSelector} from '../../app/utils/reselect'
 
-import {connect} from "../../app/store/index";
-import * as actions from "../../app/actions/style";
+import {connect} from "../../app/store/index"
+import * as actions from "../../app/actions/style"
 import {getStyleProps, getStyleErrors} from '../../app/reducers/index'
 
-import template from 'text!./default.html';
-import 'css!./default.css'
+import template from 'text!./default.html'
 
 const mapActionsToDispatch = dispatch => bindActionCreators(actions, dispatch)
 

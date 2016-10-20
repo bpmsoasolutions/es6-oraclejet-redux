@@ -1,5 +1,5 @@
-import ko from 'knockout';
-import template from 'text!./product.html';
+import ko from 'knockout'
+import template from 'text!./product.html'
 
 class viewModel {
     constructor() {}
@@ -13,4 +13,4 @@ class viewModel {
     }
 }
 
-export default { viewModel, template };
+export default { viewModel, template }
