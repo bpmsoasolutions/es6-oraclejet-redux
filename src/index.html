@@ -9,6 +9,7 @@
 
     <!-- altaCss -->
     <!-- startCss -->
+        <link rel="stylesheet" href="styles.css" type="text/css" />
         <link rel="stylesheet" href="bower_modules/oraclejet/dist/css/alta/oj-alta-min.css" type="text/css" />
         <link rel="stylesheet" href="bower_modules/font-awesome/css/font-awesome.min.css" type="text/css" />
     <!-- endCss -->
@@ -20,8 +21,10 @@
 
 <body id="globalBody">
     <main-structure></main-structure>
-    <h2>State</h2>
-    <code data-bind="text: statePrint"></code>
+    <div class="state-viewer">
+        <h2>State</h2>
+        <code data-bind="text: statePrint"></code>
+    </div>
     <!-- cordovaJs -->
 </body>
 
