@@ -21,7 +21,16 @@ export default function connectFactory(store) {
                         })
                     })
 
-                    this.onInit(params)
+
+                    if(this.onInit){
+                        this.onInit(params)
+                    }
+                }
+
+                dispose(){
+                    if(this.onDispose){
+                        this.onDispose()
+                    }
                 }
             }
 

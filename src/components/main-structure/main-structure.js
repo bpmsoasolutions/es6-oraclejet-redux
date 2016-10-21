@@ -20,17 +20,6 @@ class viewModel {
         var smQuery = oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
         this.smScreen = oj.ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
 
-        this.routes = new oj.ArrayTableDataSource([{
-            url: '/',
-            container: 'home',
-            name: 'Home',
-            iconClass: 'fa fa-home fa-2x oj-navigationlist-item-icon'
-        },{
-            url: '/product',
-            container: 'product',
-            name: 'Product',
-            iconClass: 'fa fa-product-hunt fa-2x oj-navigationlist-item-icon'
-        }], {idAttribute: 'container'});
         this.selectedItem = ko.observable('home');
     }
 
