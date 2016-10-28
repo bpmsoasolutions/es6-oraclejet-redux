@@ -1,6 +1,6 @@
 const routes = [{
     url: '/',
-    container: 'home',
+    container: 'default',
     name: 'Home',
     iconClass: 'fa fa-home fa-2x oj-navigationlist-item-icon'
 },{
