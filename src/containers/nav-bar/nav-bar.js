@@ -3,7 +3,7 @@ import ko from 'knockout';
 import template from 'text!./nav-bar.html';
 
 import { bindActionCreators } from 'redux'
-import {createSelector} from '../../app/utils/reselect'
+import { createSelector } from 'reselect'
 import {connect} from "../../app/store/index"
 import {getRouter} from '../../app/reducers/index'
 import routes from '../../app/routes'

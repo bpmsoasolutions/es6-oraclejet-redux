@@ -22,6 +22,7 @@ var require = {
         "axios":                "bower_modules/axios/dist/axios.min",
         "redux":                "bower_modules/redux/index",
         "redux-logger":         "bower_modules/redux-logger/index",
+        "reselect":             "bower_modules/reselect/index",
         "history":              "bower_modules/history/index"
     },
     shim: {

@@ -1,5 +1,5 @@
-import {CHANGE_COLOR,CHANGE_WIDTH,CHANGE_HEIGHT} from '../constants/style'
-import {createSelector} from '../utils/reselect'
+import { CHANGE_COLOR,CHANGE_WIDTH,CHANGE_HEIGHT } from '../constants/style'
+import { createSelector } from 'reselect'
 
 const initialState = {
     color: '',

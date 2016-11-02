@@ -15,6 +15,7 @@
     "redux": "https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js",
     "redux-logger": "https://unpkg.com/redux-logger@2.6.1/dist/index.js",
     "history": "https://unpkg.com/history/umd/history.js",
+    "reselect": "https://gist.githubusercontent.com/danibram/0db1931718507881e49859785743f6d0/raw/c4b69b636411531d99fa8d4d31b9e9403a64a71b/reselect.js",
     "require-css": "^0.1.8"
   },
   "resolutions": {
