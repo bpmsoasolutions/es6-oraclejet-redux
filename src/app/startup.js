@@ -13,7 +13,7 @@ import './register'
 jetKomponents.register(ko);
 
 import { bindActionCreators } from 'redux'
-import { createSelector } from './utils/reselect'
+import { createSelector } from 'reselect'
 import { connect } from "./store/index";
 
 const mapActionsToDispatch = dispatch => bindActionCreators({}, dispatch)
