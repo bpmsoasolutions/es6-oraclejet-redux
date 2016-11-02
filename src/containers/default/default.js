@@ -1,6 +1,6 @@
 import ko from 'knockout'
 import { bindActionCreators } from 'redux'
-import {createSelector} from 'reselect'
+import { createSelector } from 'reselect'
 
 import {connect} from "../../app/store/index"
 import * as actions from "../../app/actions/style"
