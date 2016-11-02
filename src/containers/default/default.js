@@ -29,7 +29,6 @@ const mapStateToProps = createSelector(
 const mapStateToProps = style => ({
     style: getStyleProps(state),
     errors: getStyleErrors(state),
-    statePrint: JSON.stringify(state),
     hasErrors: getStyleErrors(state) ? true : false
 })*/
 
@@ -46,10 +45,6 @@ class viewModel {
 
     updateColor(data, e){
         this.changeColor(e.target.value)
-    }
-
-    getValueAsInt(input){
-        return input.value
     }
 
     onInit(){
