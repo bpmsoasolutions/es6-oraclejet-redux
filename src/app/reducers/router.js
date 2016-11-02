@@ -2,7 +2,7 @@
  * This action type will be dispatched when your history
  * receives a location change.
  */
-import {LOCATION_CHANGE} from './constants'
+import {LOCATION_CHANGE} from '../constants/router'
 
 const {pathname, search, hash} = location
 const initialState = {

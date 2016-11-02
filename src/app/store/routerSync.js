@@ -1,6 +1,4 @@
-import {
-    LOCATION_CHANGE
-} from './constants'
+import { LOCATION_CHANGE } from '../constants/router'
 
 const defaultSelectLocationState = state => state.routing
 

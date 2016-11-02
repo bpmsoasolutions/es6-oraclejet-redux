@@ -2,7 +2,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 
 import { createHashHistory } from 'history'
-import { syncHistoryWithStore, routerMiddleware, push } from '../utils/router/index'
+
+import routerMiddleware from './routerMiddleware'
+import syncHistoryWithStore from './routerSync'
+import { push } from '../actions/router'
 
 import rootReducer, {getRouter} from '../reducers/index';
 import connectFactory from './connectFactory'
@@ -29,5 +32,5 @@ export {
     connect,
     history
 }
-// Test Methods remains the final implementation
+
 store.dispatch(push(history.location))

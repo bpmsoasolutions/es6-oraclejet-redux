@@ -1,4 +1,4 @@
-import {CHANGE_WIDTH, CHANGE_HEIGHT, CHANGE_COLOR} from '../constants/style'
+import { CHANGE_WIDTH, CHANGE_HEIGHT, CHANGE_COLOR } from '../constants/style'
 
 function changeWidth(width){
     return {
