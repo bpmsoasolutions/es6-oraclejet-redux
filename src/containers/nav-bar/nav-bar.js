@@ -29,14 +29,20 @@ class viewModel {
         // This viewmodel doesn't do anything except pass through the 'route' parameter to the view.
         // You could remove this viewmodel entirely, and define 'nav-bar' as a template-only component.
         // But in most apps, you'll want some viewmodel logic to determine what navigation options appear.
-        this.route = 'default';
+        let hashPath = this.router().locationBeforeTransitions.pathname
+        let path = hashPath.slice(1, hashPath.length)
+        if (path === ''){
+            path = 'default'
+        }
+
         this.appName = 'Knockout, Redux and JET'
         // Media Queries for repsonsive header
         var smQuery = oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
         this.smScreen = oj.ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
 
         this.routes = new oj.ArrayTableDataSource(routes, {idAttribute: 'container'});
-        this.selectedItem = ko.observable('default');
+        this.selectedItem = ko.observable(path);
+
     }
 
     menuItemSelect(event, ui) {

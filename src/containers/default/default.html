@@ -1,36 +1,25 @@
-
-<div class="oj-flex oj-flex-items-pad">
-    <div class="oj-md-3 oj-flex-item"></div>
-    <div class="oj-sm-12 oj-md-6 oj-flex-item">
-        <div class="oj-panel oj-margin demo-panel-customizations">
-
-    <h1>Home</h1>
-    <form class="form">
-        <div class="form-group">
-            <label for="width">Width</label>
-            <input type="text" class="form-control" name="width"
-            data-bind="event:{keyup:updateWidth}, value:width"  placeholder="width">
-        </div>
-        <div class="form-group">
-            <label for="height">Height</label>
-            <input type="text" class="form-control" name="height"
-                data-bind="event:{keyup:updateHeight}, value:height"
-                placeholder="heigth">
-        </div>
-        <div class="form-group">
-            <label for="color">Color</label>
-            <input type="text" class="form-control" name="color"
-                data-bind="event:{keyup:updateColor}, value:style().color"
-                placeholder="color">
-        </div>
-    </form>
-    <div data-bind="if:hasErrors">
-        <div class="alert alert-danger" data-bind="foreach:errors">
-            <p data-bind="text:$data"></p>
-        </div>
+<h1>Home</h1>
+<form class="form">
+    <div class="form-group">
+        <label for="width">Width</label>
+        <input type="text" class="form-control" name="width"
+        data-bind="event:{keyup:updateWidth}, value:width"  placeholder="width">
     </div>
-
-        </div>
+    <div class="form-group">
+        <label for="height">Height</label>
+        <input type="text" class="form-control" name="height"
+            data-bind="event:{keyup:updateHeight}, value:height"
+            placeholder="heigth">
     </div>
-    <div class="oj-md-3 oj-flex-item"></div>
+    <div class="form-group">
+        <label for="color">Color</label>
+        <input type="text" class="form-control" name="color"
+            data-bind="event:{keyup:updateColor}, value:style().color"
+            placeholder="color">
+    </div>
+</form>
+<div data-bind="if:hasErrors">
+    <div class="alert alert-danger" data-bind="foreach:errors">
+        <p data-bind="text:$data"></p>
+    </div>
 </div>
