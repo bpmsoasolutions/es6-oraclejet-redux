@@ -2,7 +2,6 @@ import $ from 'jquery';
 import ko from 'knockout';
 import template from 'text!./nav-bar.html';
 
-import { bindActionCreators } from 'redux'
 import { createSelector } from 'reselect'
 import {connect} from "../../app/store/index"
 import {getRouter} from '../../app/reducers/index'
@@ -16,14 +15,12 @@ import 'ojs/ojmenu'
 import 'ojs/ojinputtext'
 import 'ojs/ojoffcanvas'
 
-const mapActionsToDispatch = dispatch => bindActionCreators({}, dispatch)
-
 const mapStateToProps = createSelector(
     getRouter,
     (router) => ({ router })
 )
 
-@connect(mapStateToProps, mapActionsToDispatch)
+@connect(mapStateToProps)
 class viewModel {
     onInit(params){
         // This viewmodel doesn't do anything except pass through the 'route' parameter to the view.

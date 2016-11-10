@@ -1,10 +1,8 @@
 import ko from 'knockout'
 import { bindActionCreators } from 'redux'
 
-const defaultMapActionsToDispatch = dispatch => bindActionCreators({}, dispatch)
-
 export default function connectFactory(store) {
-    return function connect(mapStateToProps, mapActionsToDispatch = defaultMapActionsToDispatch) {
+    return function connect(mapStateToProps, actions = {}) {
         return function connectDecorator(ViewModel) {
 
             class DecoratedViewModel extends ViewModel {
@@ -38,7 +36,7 @@ export default function connectFactory(store) {
                 }
             }
 
-            Object.assign(DecoratedViewModel.prototype, mapActionsToDispatch(store.dispatch))
+            Object.assign(DecoratedViewModel.prototype, bindActionCreators(actions, store.dispatch))
 
             return DecoratedViewModel
         }

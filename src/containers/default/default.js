@@ -1,5 +1,4 @@
 import ko from 'knockout'
-import { bindActionCreators } from 'redux'
 import { createSelector } from 'reselect'
 
 import {connect} from "../../app/store/index"
@@ -7,8 +6,6 @@ import * as actions from "../../app/actions/style"
 import {getStyleProps, getStyleErrors} from '../../app/reducers/index'
 
 import template from 'text!./default.html'
-
-const mapActionsToDispatch = dispatch => bindActionCreators(actions, dispatch)
 
 const mapStateToProps = createSelector(
     getStyleProps,
@@ -32,7 +29,7 @@ const mapStateToProps = style => ({
     hasErrors: getStyleErrors(state) ? true : false
 })*/
 
-@connect(mapStateToProps, mapActionsToDispatch)
+@connect(mapStateToProps, actions)
 class viewModel {
 
     updateWidth(data, e){
